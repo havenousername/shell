@@ -1,0 +1,4 @@
+#!/bin/sh
+for name in `who | cut -f1 -d" "`
+finger $name | head -1 | cut -f3 -d":"
+done

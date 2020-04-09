@@ -1,0 +1,14 @@
+cd 
+ls 
+pwd - show the directory
+cp 
+mv 
+rm 
+echo - lunix version of print
+cat - concatinate
+less - simular to cat but its a bit different
+grep - search and filtering
+mkdir
+touch 
+chmod
+man + help 
