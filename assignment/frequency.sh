@@ -10,15 +10,23 @@ then
     do
       for word in $row
       do 
-        count=`grep -q $word $1 && echo $?`
-        if test $count -eq 0
+        count=`grep -o -i $word $1 | wc -l`
+        if test $count -gt $i
         then
-          echo "Found it ($count times)"
-        else
-          echo I didnt
-        fi 
+          i=$count
+        fi  
+       # if test $count -eq 0
+       # then
+       #   echo "Found it"
+       #   i=`expr $i + 1`
+       #   echo $i
+       #  echo $word
+       # else
+       #   echo I didnt
+       # fi 
       done
     done < $1
+    echo $i
   else 
     echo Please enter existing file
   fi  
