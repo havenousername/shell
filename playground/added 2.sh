@@ -12,24 +12,12 @@ then
     while read row
     do
      i=`expr $i + 1`
-     if test `expr $i % 2` -eq 0 
+     if test `expr $i % 2` -eq 0 -a `expr $row % 2` -eq 0
      then
-       for word in $row
-       do
-         if `expr $word % 2 -eq 0`
-         then
-           accum=`expr $accum + $word`
-         fi
-       done
-     elif test `expr $i % 2` -ne 0 
+        accum=`expr $accum + $row`
+     elif test `expr $i % 2` -ne 0 -a `expr $row % 2` -ne 0 
      then
-       for word in $row
-       do
-         if `expr $row % 2` -ne 0
-         then
-           accum_two=`expr $accum_two + $row `
-         fi
-       done
+       accum_two=`expr $accum_two + $row `
      fi
     done < $1
     echo "Even lines: $accum"

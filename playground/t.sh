@@ -11,23 +11,23 @@ then
     #echo $1 | wc -l
     while read row
     do
-     i=`expr $i + 1`
-     if test `expr $i % 2` -eq 0 
+     i=`expr $i + 1` 
+     if test `expr $i % 2` -eq 0
      then
-       for word in $row
-       do
-         if `expr $word % 2 -eq 0`
+        for word in $row
+        do
+         if test `expr $word % 2` -eq 0
          then
-           accum=`expr $accum + $word`
-         fi
-       done
+          accum=`expr $accum + $word`
+         fi 
+        done
      elif test `expr $i % 2` -ne 0 
      then
        for word in $row
-       do
-         if `expr $row % 2` -ne 0
+       do 
+         if test `expr $word % 2` -ne 0 
          then
-           accum_two=`expr $accum_two + $row `
+           accum_two=`expr $accum_two + $word`
          fi
        done
      fi
